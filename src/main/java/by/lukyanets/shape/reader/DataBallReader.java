@@ -1,7 +1,7 @@
 package by.lukyanets.shape.reader;
 
 import by.lukyanets.shape.exception.ShapeException;
-import by.lukyanets.shape.validator.DataReaderValidator;
+import by.lukyanets.shape.validator.DataValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DataBallReader {
     private static final Logger logger = LogManager.getLogger(DataBallReader.class);
-    private static final DataReaderValidator validator = new DataReaderValidator();
+    private static final DataValidator validator = new DataValidator();
 
     public List<String> readFromFile(String fileName) throws ShapeException {
         if (!validator.isFileValid(fileName)) {
