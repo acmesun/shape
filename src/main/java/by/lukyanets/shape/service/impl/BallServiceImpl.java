@@ -4,22 +4,68 @@ import by.lukyanets.shape.entity.BallEntity;
 import by.lukyanets.shape.entity.PointEntity;
 import by.lukyanets.shape.exception.ShapeException;
 import by.lukyanets.shape.service.BallService;
+import by.lukyanets.shape.validator.ShapeValidator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BallServiceImpl implements BallService {
+    private final static ShapeValidator validator = new ShapeValidator();
+    private final static Logger logger = LogManager.getLogger(BallServiceImpl.class);
+    private final static String VALIDATOR_WORKS = "BallEntity validation";
+
     @Override
-    public double findBallArea(BallEntity ballEntity) {
+    public double findBallArea(BallEntity ballEntity) throws ShapeException {
+        logger.info(VALIDATOR_WORKS);
+        if (validator.isNull(ballEntity)) {
+            logger.error("Exception! Entity can not be null!");
+            throw new ShapeException();
+        }
         double radius = ballEntity.getRadius();
         return 4 * Math.PI * Math.sqrt(radius);
     }
 
     @Override
-    public double findBallVolume(BallEntity ballEntity) {
+    public double findBallVolume(BallEntity ballEntity) throws ShapeException {
+        logger.info(VALIDATOR_WORKS);
+        if (validator.isNull(ballEntity)) {
+            logger.error("Exception! Entity can not be null!");
+            throw new ShapeException();
+        }
         double radius = ballEntity.getRadius();
         return 4 / 3 * Math.PI * Math.pow(radius, 3);
     }
 
     @Override
+    public boolean isItBall(Object object) throws ShapeException {
+        logger.info(VALIDATOR_WORKS);
+        if (validator.isNull(object)) {
+            logger.error("Object is null");
+            throw new ShapeException();
+        }
+        return object instanceof BallEntity;
+    }
+
+    @Override
+    public boolean isBallTouchingCoordinateLines(BallEntity ballEntity) throws ShapeException {
+        logger.info(VALIDATOR_WORKS);
+        if (validator.isNull(ballEntity)) {
+            logger.error("Entity is null");
+            throw new ShapeException();
+        }
+        double radius = ballEntity.getRadius();
+        double x = ballEntity.getPointEntity().getX();
+        double y = ballEntity.getPointEntity().getY();
+        double z = ballEntity.getPointEntity().getZ();
+        return radius == x || radius == y || radius == z;
+    }
+
+    @Override
     public double findVolumeRatio(BallEntity ballEntity, PointEntity point) throws ShapeException {
+        logger.info(VALIDATOR_WORKS);
+        if (validator.isNull(ballEntity) || validator.isNull(point)) {
+            logger.error("Parameters cannot be null");
+            throw new ShapeException();
+        }
         double radius = ballEntity.getRadius();
         double pointX = point.getX();
         double pointY = point.getY();
@@ -33,31 +79,24 @@ public class BallServiceImpl implements BallService {
         } else {
             throw new ShapeException("The ball does not intersect the coordinate planes.");
         }
-
     }
 
-    private double findHeight(double radius, double coordinatePoint) {
+    private double findHeight(double radius, double coordinatePoint) throws ShapeException {
+        if (validator.isNull(radius) || validator.isNull(coordinatePoint)) {
+            logger.error("Radius or coordinatePoint can not be null");
+            throw new ShapeException();
+        }
         return radius - coordinatePoint;
     }
 
 
-    private double calcRatio(double radius, double height, BallEntity ballEntity) {
+    private double calcRatio(double radius, double height, BallEntity ballEntity) throws ShapeException {
+        if (validator.isNull(radius) || validator.isNull(height) || validator.isNull(ballEntity)) {
+            logger.error("Parameters can not be null");
+            throw new ShapeException();
+        }
         double volume = (Math.sqrt(height) * Math.PI) / 3 * (3 * radius - height);
         double fullVolume = findBallVolume(ballEntity);
         return volume / (fullVolume - volume);
-    }
-
-    @Override
-    public boolean isItBall(Object object) {
-        return object instanceof BallEntity;
-    }
-
-    @Override
-    public boolean isBallTouchingCoordinateLines(BallEntity ballEntity) {
-        double radius = ballEntity.getRadius();
-        double x = ballEntity.getPointEntity().getX();
-        double y = ballEntity.getPointEntity().getY();
-        double z = ballEntity.getPointEntity().getZ();
-        return radius == x || radius == y || radius == z;
     }
 }
