@@ -1,9 +1,11 @@
 package by.lukyanets.shape.service;
 
+import by.lukyanets.shape.entity.BallEntity;
+
 public interface BallService {
-    double findBallArea();
-    double findBallVolume();
+    double findBallArea(BallEntity ballEntity);
+    double findBallVolume(BallEntity ballEntity);
     double findVolumeRatio();
-    boolean isItBall();
-    boolean isBallTouchingCoordinateLines();
+    boolean isItBall(Object object);
+    boolean isBallTouchingCoordinateLines(BallEntity ballEntity);
 }
