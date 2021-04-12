@@ -1,6 +1,7 @@
-package by.lukyanets.shape.service;
+package by.lukyanets.shape.service.impl;
 
 import by.lukyanets.shape.entity.BallEntity;
+import by.lukyanets.shape.service.BallService;
 
 public class BallServiceImpl implements BallService {
     @Override

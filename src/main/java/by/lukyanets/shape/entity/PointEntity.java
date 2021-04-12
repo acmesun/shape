@@ -2,13 +2,13 @@ package by.lukyanets.shape.entity;
 
 import java.util.Objects;
 
-public class DotEntity {
+public class PointEntity {
     private final int id;
     private final double x;
     private final double y;
     private final double z;
 
-    public DotEntity(int id, double x, double y, double z) {
+    public PointEntity(int id, double x, double y, double z) {
         this.id = id;
         this.x = x;
         this.y = y;
@@ -35,8 +35,8 @@ public class DotEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DotEntity dotEntity = (DotEntity) o;
-        return id == dotEntity.id && Double.compare(dotEntity.x, x) == 0 && Double.compare(dotEntity.y, y) == 0 && Double.compare(dotEntity.z, z) == 0;
+        PointEntity pointEntity = (PointEntity) o;
+        return id == pointEntity.id && Double.compare(pointEntity.x, x) == 0 && Double.compare(pointEntity.y, y) == 0 && Double.compare(pointEntity.z, z) == 0;
     }
 
     @Override

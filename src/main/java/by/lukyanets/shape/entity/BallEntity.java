@@ -5,12 +5,12 @@ import java.util.Objects;
 public class BallEntity {
     private final int ballID;
     private final double radius;
-    private final DotEntity dotEntity;
+    private final PointEntity pointEntity;
 
-    public BallEntity(int ballID, double radius, DotEntity dotEntity) {
+    public BallEntity(int ballID, double radius, PointEntity pointEntity) {
         this.ballID = ballID;
         this.radius = radius;
-        this.dotEntity = dotEntity;
+        this.pointEntity = pointEntity;
     }
 
     public int getBallID() {
@@ -21,8 +21,8 @@ public class BallEntity {
         return radius;
     }
 
-    public DotEntity getDotEntity() {
-        return dotEntity;
+    public PointEntity getDotEntity() {
+        return pointEntity;
     }
 
     @Override
@@ -30,12 +30,12 @@ public class BallEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BallEntity that = (BallEntity) o;
-        return ballID == that.ballID && Double.compare(that.radius, radius) == 0 && Objects.equals(dotEntity, that.dotEntity);
+        return ballID == that.ballID && Double.compare(that.radius, radius) == 0 && Objects.equals(pointEntity, that.pointEntity);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ballID, radius, dotEntity);
+        return Objects.hash(ballID, radius, pointEntity);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class BallEntity {
         return "BallEntity{" +
                 "ballID=" + ballID +
                 ", radius=" + radius +
-                ", dotEntity=" + dotEntity +
+                ", dotEntity=" + pointEntity +
                 '}';
     }
 }
