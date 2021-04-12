@@ -21,7 +21,7 @@ public class BallEntity {
         return radius;
     }
 
-    public PointEntity getDotEntity() {
+    public PointEntity getPointEntity() {
         return pointEntity;
     }
 
