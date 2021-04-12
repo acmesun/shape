@@ -10,8 +10,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class DataBallReader {
-    private static final Logger logger = LogManager.getLogger(DataBallReader.class);
+public class ShapeDataReader {
+    private static final Logger logger = LogManager.getLogger(ShapeDataReader.class);
     private static final DataValidator validator = new DataValidator();
 
     public List<String> readFromFile(String fileName) throws ShapeException {

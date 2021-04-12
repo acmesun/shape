@@ -56,7 +56,12 @@ public class BallServiceImpl implements BallService {
         double x = ballEntity.getPointEntity().getX();
         double y = ballEntity.getPointEntity().getY();
         double z = ballEntity.getPointEntity().getZ();
-        return radius == x || radius == y || radius == z;
+        return isEquals(radius, x) || isEquals(radius, y) || isEquals(radius, z);
+    }
+
+    public boolean isEquals(double x, double y) {
+        double delta = 0.0001;
+        return Math.abs(x - y) < delta;
     }
 
     @Override

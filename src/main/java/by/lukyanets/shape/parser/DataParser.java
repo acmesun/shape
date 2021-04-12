@@ -1,4 +1,4 @@
-package by.lukyanets.shape.entity.parser;
+package by.lukyanets.shape.parser;
 
 import by.lukyanets.shape.dto.BallDto;
 import by.lukyanets.shape.exception.ShapeException;
