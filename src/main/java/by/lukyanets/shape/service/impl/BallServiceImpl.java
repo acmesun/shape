@@ -15,24 +15,16 @@ public class BallServiceImpl implements BallService {
 
     @Override
     public double findBallArea(BallEntity ballEntity) throws ShapeException {
-        logger.info(VALIDATOR_WORKS);
-        if (validator.isNull(ballEntity)) {
-            logger.error("Exception! Entity can not be null!");
-            throw new ShapeException();
-        }
+        verifyForCalculation(ballEntity);
         double radius = ballEntity.getRadius();
         return 4 * Math.PI * Math.sqrt(radius);
     }
 
     @Override
     public double findBallVolume(BallEntity ballEntity) throws ShapeException {
-        logger.info(VALIDATOR_WORKS);
-        if (validator.isNull(ballEntity)) {
-            logger.error("Exception! Entity can not be null!");
-            throw new ShapeException();
-        }
+        verifyForCalculation(ballEntity);
         double radius = ballEntity.getRadius();
-        return 4 / 3 * Math.PI * Math.pow(radius, 3);
+        return (double) 4 / 3 * Math.PI * Math.pow(radius, 3);
     }
 
     @Override
@@ -47,11 +39,7 @@ public class BallServiceImpl implements BallService {
 
     @Override
     public boolean isBallTouchingCoordinateLines(BallEntity ballEntity) throws ShapeException {
-        logger.info(VALIDATOR_WORKS);
-        if (validator.isNull(ballEntity)) {
-            logger.error("Entity is null");
-            throw new ShapeException();
-        }
+        verifyForCalculation(ballEntity);
         double radius = ballEntity.getRadius();
         double x = ballEntity.getPointEntity().getX();
         double y = ballEntity.getPointEntity().getY();
@@ -59,16 +47,11 @@ public class BallServiceImpl implements BallService {
         return isEquals(radius, x) || isEquals(radius, y) || isEquals(radius, z);
     }
 
-    public boolean isEquals(double x, double y) {
-        double delta = 0.0001;
-        return Math.abs(x - y) < delta;
-    }
-
     @Override
     public double findVolumeRatio(BallEntity ballEntity, PointEntity point) throws ShapeException {
-        logger.info(VALIDATOR_WORKS);
-        if (validator.isNull(ballEntity) || validator.isNull(point)) {
-            logger.error("Parameters cannot be null");
+        verifyForCalculation(ballEntity);
+        if (validator.isNull(point)){
+            logger.error("Point can not be null");
             throw new ShapeException();
         }
         double radius = ballEntity.getRadius();
@@ -103,5 +86,23 @@ public class BallServiceImpl implements BallService {
         double volume = (Math.sqrt(height) * Math.PI) / 3 * (3 * radius - height);
         double fullVolume = findBallVolume(ballEntity);
         return volume / (fullVolume - volume);
+    }
+
+    private void verifyForCalculation(BallEntity ballEntity) throws ShapeException {
+        logger.info(VALIDATOR_WORKS);
+        if (validator.isNull(ballEntity)) {
+            logger.error("Exception! Entity can not be null!");
+            throw new ShapeException();
+        }
+        if (validator.isRadiusNegativeOrZero(ballEntity)) {
+            logger.error("Exception! Radius can not be " + ballEntity.getRadius());
+            throw new ShapeException();
+        }
+
+    }
+
+    private boolean isEquals(double x, double y) {
+        double delta = 0.001;
+        return Math.abs(x - y) < delta;
     }
 }

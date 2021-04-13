@@ -3,8 +3,8 @@ package by.lukyanets.shape.entity;
 import java.util.Objects;
 
 public class BallEntity extends ShapeEntity {
-    private final double radius;
-    private final PointEntity pointEntity;
+    private double radius;
+    private PointEntity pointEntity;
 
     public BallEntity(double id, double radius, PointEntity pointEntity) {
         super(id);
