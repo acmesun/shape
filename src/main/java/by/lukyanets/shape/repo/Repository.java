@@ -1,10 +1,8 @@
 package by.lukyanets.shape.repo;
 
-import by.lukyanets.shape.entity.ShapeEntity;
-
 import java.util.List;
 
-public interface Repository<E,ID> {
+public interface Repository<E, ID> {
     void delete(E entity);
 
     void deleteAll(List<E> entities);
