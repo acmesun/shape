@@ -2,9 +2,12 @@ package by.lukyanets.shape.creator;
 
 import by.lukyanets.shape.entity.ShapeEntity;
 
-public class PointCreator extends ShapeCreator{
+import java.util.List;
+
+public class PointCreator extends ShapeCreator {
     @Override
-    protected ShapeEntity createEntity(String data) {
+    protected List<ShapeEntity> createEntity(String fileName) {
+
         return null;
     }
 }

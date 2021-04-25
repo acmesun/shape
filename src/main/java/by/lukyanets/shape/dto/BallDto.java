@@ -1,28 +1,16 @@
 package by.lukyanets.shape.dto;
 
 public class BallDto {
-    private final double x;
-    private final double y;
-    private final double z;
+    private final PointDto point;
     private final double r;
 
-    public BallDto(double x, double y, double z, double r) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+    public BallDto(PointDto point, double r) {
+        this.point = point;
         this.r = r;
     }
 
-    public double getX() {
-        return x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public double getZ() {
-        return z;
+    public PointDto getPoint() {
+        return point;
     }
 
     public double getR() {

@@ -1,13 +1,9 @@
 package by.lukyanets.shape.entity;
 
 public abstract class ShapeEntity {
-    private final double id;
+    private int id;
 
-    public ShapeEntity(double id) {
+    public ShapeEntity(int id) {
         this.id = id;
-    }
-
-    public double getId() {
-        return id;
     }
 }

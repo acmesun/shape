@@ -8,7 +8,7 @@ public class PointEntity extends ShapeEntity{
     private final double y;
     private final double z;
 
-    public PointEntity(double id, double x, double y, double z) {
+    public PointEntity(int id, double x, double y, double z) {
         super(id);
         this.x = x;
         this.y = y;

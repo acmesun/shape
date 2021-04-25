@@ -1,6 +1,5 @@
 package by.lukyanets.shape.parser;
 
-import by.lukyanets.shape.dto.BallDto;
 import by.lukyanets.shape.exception.ShapeException;
 import by.lukyanets.shape.validator.DataValidator;
 import org.apache.logging.log4j.LogManager;
@@ -15,12 +14,12 @@ public class DataParser {
     private final static DataValidator validator = new DataValidator();
 
 
-    public List<BallDto> dataParser(List<String> list) throws ShapeException {
+    public List<String> dataParser(List<String> list) throws ShapeException {
         if (validator.isListNotReadyToParse(list)) {
             logger.error("List can not be null.");
             throw new ShapeException("Exception - list cannot be parse.");
         }
-        List<BallDto> result = new ArrayList<>(list.size());
+        List<String> result = new ArrayList<>(list.size());
         for (String s : list) {
             String[] strings = s.split(" ");
             if (strings.length > 4) {
@@ -36,9 +35,9 @@ public class DataParser {
                     logger.error("Radius cannot be negative.");
                     throw new ShapeException();
                 }
-                result.add(new BallDto(first, second, third, forth));
+                result.add(first + " " + second + " " + third +  " " + forth);
             } catch (NumberFormatException e) {
-                logger.error("Data cannot be parsed to double format.");
+                logger.error("Data cannot be parsed.");
                 throw new ShapeException();
             }
         }

@@ -17,7 +17,7 @@ public class BallServiceImpl implements BallService {
     public double findBallArea(BallEntity ballEntity) throws ShapeException {
         verifyForCalculation(ballEntity);
         double radius = ballEntity.getRadius();
-        return 4 * Math.PI * Math.sqrt(radius);
+        return 4.0 * Math.PI * Math.pow(radius, 2);
     }
 
     @Override
@@ -41,9 +41,9 @@ public class BallServiceImpl implements BallService {
     public boolean isBallTouchingCoordinateLines(BallEntity ballEntity) throws ShapeException {
         verifyForCalculation(ballEntity);
         double radius = ballEntity.getRadius();
-        double x = ballEntity.getPointEntity().getX();
-        double y = ballEntity.getPointEntity().getY();
-        double z = ballEntity.getPointEntity().getZ();
+        double x = ballEntity.getX();
+        double y = ballEntity.getY();
+        double z = ballEntity.getZ();
         return isEquals(radius, x) || isEquals(radius, y) || isEquals(radius, z);
     }
 
@@ -102,7 +102,7 @@ public class BallServiceImpl implements BallService {
     }
 
     private boolean isEquals(double x, double y) {
-        double delta = 0.001;
+        double delta = 0.01;
         return Math.abs(x - y) < delta;
     }
 }
