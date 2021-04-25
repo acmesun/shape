@@ -17,4 +17,6 @@ public class ShapeValidator {
         logger.info("Radius cannot be negative or zero.");
         return ballEntity.getRadius() <= 0;
     }
+
+
 }

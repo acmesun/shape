@@ -50,7 +50,7 @@ public class BallServiceImpl implements BallService {
     @Override
     public double findVolumeRatio(BallEntity ballEntity, PointEntity point) throws ShapeException {
         verifyForCalculation(ballEntity);
-        if (validator.isNull(point)){
+        if (validator.isNull(point)) {
             logger.error("Point can not be null");
             throw new ShapeException();
         }
@@ -91,18 +91,18 @@ public class BallServiceImpl implements BallService {
     private void verifyForCalculation(BallEntity ballEntity) throws ShapeException {
         logger.info(VALIDATOR_WORKS);
         if (validator.isNull(ballEntity)) {
-            logger.error("Exception! Entity can not be null!");
+            logger.error("Exception! Entity cannot be null!");
             throw new ShapeException();
         }
         if (validator.isRadiusNegativeOrZero(ballEntity)) {
-            logger.error("Exception! Radius can not be " + ballEntity.getRadius());
+            logger.error("Exception! Radius cannot be " + ballEntity.getRadius());
             throw new ShapeException();
         }
 
     }
 
-    private boolean isEquals(double x, double y) {
+    private boolean isEquals(double number1, double number2) {
         double delta = 0.01;
-        return Math.abs(x - y) < delta;
+        return Math.abs(number1 - number2) < delta;
     }
 }

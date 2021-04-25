@@ -6,4 +6,8 @@ public abstract class ShapeEntity {
     public ShapeEntity(int id) {
         this.id = id;
     }
+
+    public int getId() {
+        return id;
+    }
 }

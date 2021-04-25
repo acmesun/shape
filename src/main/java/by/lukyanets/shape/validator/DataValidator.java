@@ -23,4 +23,5 @@ public class DataValidator {
         logger.info("List check.");
         return list == null || list.isEmpty();
     }
+
 }

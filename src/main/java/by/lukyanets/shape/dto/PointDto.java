@@ -1,26 +1,31 @@
 package by.lukyanets.shape.dto;
 
 public class PointDto {
-    private final double x;
-    private final double y;
-    private final double z;
+    private final int id;
+    private final long x;
+    private final long y;
+    private final long z;
 
-    public PointDto(double x, double y, double z) {
+    public PointDto(int id, long x, long y, long z) {
+        this.id = id;
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public double getX() {
+    public int getId() {
+        return id;
+    }
+
+    public long getX() {
         return x;
     }
 
-    public double getY() {
+    public long getY() {
         return y;
     }
 
-    public double getZ() {
+    public long getZ() {
         return z;
     }
-
 }
