@@ -13,10 +13,13 @@ public class ShapeValidator {
         return ballEntity == null;
     }
 
-    public boolean isRadiusNegativeOrZero(BallEntity ballEntity){
+    public boolean isRadiusNegativeOrZero(BallEntity ballEntity) {
         logger.info("Radius cannot be negative or zero.");
         return ballEntity.getRadius() <= 0;
     }
 
+    public boolean canItBeRadius(double r) {
+        return r > 0;
+    }
 
 }
