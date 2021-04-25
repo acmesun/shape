@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface PointSortService {
 
-    List<PointEntity> sortById();
+    List<PointEntity> sortById(List<PointEntity> entities);
 
-    List<PointEntity> sortByX();
+    List<PointEntity> sortByX(List<PointEntity> entities);
 
-    List<PointEntity> sortByY();
+    List<PointEntity> sortByY(List<PointEntity> entities);
 
-    List<PointEntity> sortByZ();
+    List<PointEntity> sortByZ(List<PointEntity> entities);
 
 }
