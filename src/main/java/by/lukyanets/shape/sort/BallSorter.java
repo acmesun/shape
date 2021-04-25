@@ -4,7 +4,7 @@ import by.lukyanets.shape.entity.BallEntity;
 
 import java.util.List;
 
-public interface BallSortService {
+public interface BallSorter {
     List<BallEntity> sortById(List<BallEntity> entities);
 
     List<BallEntity> sortByX(List<BallEntity> entities);

@@ -4,7 +4,7 @@ import by.lukyanets.shape.entity.PointEntity;
 
 import java.util.List;
 
-public interface PointSortService {
+public interface PointSorter {
 
     List<PointEntity> sortById(List<PointEntity> entities);
 
