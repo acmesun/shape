@@ -12,7 +12,7 @@ public class BallServiceImplTest {
     private final BallServiceImpl service = new BallServiceImpl();
     private final PointEntity pointEntity = new PointEntity(1.0, 2.0, 3.0, 5.0);
     private final BallEntity normalBallEntity = new BallEntity(1.0, 2.0, pointEntity);
-    private final double delta = 0.001;
+    private final double delta = 0.01;
 
     @Test
     public void findBallAreaNullTest() {
