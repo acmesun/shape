@@ -1,5 +1,6 @@
 package by.lukyanets.shape;
 
+import by.lukyanets.shape.creator.BallCreator;
 import by.lukyanets.shape.entity.BallEntity;
 import by.lukyanets.shape.exception.ShapeException;
 import by.lukyanets.shape.service.impl.BallServiceImpl;
@@ -10,5 +11,10 @@ public class Main {
         BallServiceImpl service = new BallServiceImpl();
         double area = service.findBallArea(entity);
         System.out.println(area);
+
+        BallCreator creator = new BallCreator();
+        creator.createEntities("test.txt");
+
+
     }
 }
