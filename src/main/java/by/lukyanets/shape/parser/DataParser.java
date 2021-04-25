@@ -18,12 +18,13 @@ public class DataParser {
     public List<BallDto> dataParser(List<String> list) throws ShapeException {
         if (validator.isListNotReadyToParse(list)) {
             logger.error("List can not be null.");
-            throw new ShapeException("Exception - list can not be parse.");
+            throw new ShapeException("Exception - list cannot be parse.");
         }
         List<BallDto> result = new ArrayList<>(list.size());
         for (String s : list) {
             String[] strings = s.split(" ");
             if (strings.length > 4) {
+                logger.error("There are more than 4 data words.");
                 throw new ShapeException();
             }
             try {
@@ -32,13 +33,16 @@ public class DataParser {
                 double third = Double.parseDouble(strings[2]);
                 double forth = Double.parseDouble(strings[3]);
                 if (forth <= 0) {
+                    logger.error("Radius cannot be negative.");
                     throw new ShapeException();
                 }
                 result.add(new BallDto(first, second, third, forth));
             } catch (NumberFormatException e) {
+                logger.error("Data cannot be parsed to double format.");
                 throw new ShapeException();
             }
         }
+        logger.info("Data parse successfully completed.");
         return result;
     }
 }
