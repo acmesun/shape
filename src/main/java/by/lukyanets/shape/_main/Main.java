@@ -1,4 +1,4 @@
-package by.lukyanets.shape;
+package by.lukyanets.shape._main;
 
 import by.lukyanets.shape.creator.BallCreator;
 import by.lukyanets.shape.entity.BallEntity;

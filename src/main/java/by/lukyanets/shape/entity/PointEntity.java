@@ -2,7 +2,7 @@ package by.lukyanets.shape.entity;
 
 import java.util.Objects;
 
-public class PointEntity extends ShapeEntity{
+public class PointEntity extends ShapeEntity {
 
     private final double x;
     private final double y;

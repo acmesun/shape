@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ShapeCreator {
-    private final ShapeDataReader reader = new ShapeDataReader();
-    private final DataParser parser = new DataParser();
     private static final Logger logger = LogManager.getLogger(ShapeCreator.class);
     private static int nextId;
 
@@ -33,6 +31,8 @@ public abstract class ShapeCreator {
     protected abstract ShapeEntity createShape(int id, double... params) throws ShapeException;
 
     private List<String> readData(String fileName) throws ShapeException {
+        ShapeDataReader reader = new ShapeDataReader();
+        DataParser parser = new DataParser();
         logger.info("Start reading from file {}", fileName);
         List<String> data = reader.readFromFile(fileName);
         return parser.dataParser(data);

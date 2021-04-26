@@ -1,6 +1,6 @@
 package by.lukyanets.shape.exception;
 
-public class ShapeException extends Exception{
+public class ShapeException extends Exception {
     public ShapeException() {
     }
 

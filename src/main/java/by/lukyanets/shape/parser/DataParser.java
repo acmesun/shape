@@ -35,7 +35,7 @@ public class DataParser {
                     logger.error("Radius cannot be negative.");
                     throw new ShapeException();
                 }
-                result.add(first + " " + second + " " + third +  " " + forth);
+                result.add(first + " " + second + " " + third + " " + forth);
             } catch (NumberFormatException e) {
                 logger.error("Data cannot be parsed.");
                 throw new ShapeException();

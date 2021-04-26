@@ -1,7 +1,6 @@
 package by.lukyanets.shape.comparator;
 
 import by.lukyanets.shape.entity.BallEntity;
-import by.lukyanets.shape.entity.PointEntity;
 
 import java.util.Comparator;
 

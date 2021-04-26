@@ -37,7 +37,7 @@ public final class BallRepository extends ShapeRepository<BallEntity> {
             return getData().values()
                     .stream().filter(it -> it.getRadius() == radius)
                     .collect(toList());
-        }else throw new ShapeException();
+        } else throw new ShapeException();
     }
 
     public List<BallEntity> findAllByXLess(double x) {

@@ -1,7 +1,5 @@
 package by.lukyanets.shape.entity;
 
-import java.util.Objects;
-
 public class BallEntity extends ShapeEntity {
 
     private double x;
