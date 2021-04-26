@@ -33,6 +33,5 @@ public class BallSorterImpl extends ShapeSorter<BallEntity> implements BallSorte
         return getSortedBy(entities, compareByRadius());
     }
 
-
 }
 
