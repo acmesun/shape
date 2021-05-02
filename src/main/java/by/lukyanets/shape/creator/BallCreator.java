@@ -11,7 +11,7 @@ public class BallCreator extends ShapeCreator {
 
     @Override
     protected ShapeEntity createShape(int id, double... params) throws ShapeException {
-        if (params.length < NUMBER_OF_PARAMETERS) {
+        if (params.length != NUMBER_OF_PARAMETERS) {
             throw new ShapeException("Cannot create " + BallService.class + ". Not enough parameters!");
         }
         BallEntity ballEntity = new BallEntity(id, params[0], params[1], params[2], params[3]);

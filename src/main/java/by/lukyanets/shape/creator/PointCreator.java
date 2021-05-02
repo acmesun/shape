@@ -9,7 +9,7 @@ public class PointCreator extends ShapeCreator {
 
     @Override
     protected ShapeEntity createShape(int id, double... params) throws ShapeException {
-        if (params.length < NUMBER_OF_PARAMETERS) {
+        if (params.length != NUMBER_OF_PARAMETERS) {
             throw new ShapeException("Cannot create " + PointEntity.class + ". Not enough parameters!");
         }
         PointEntity pointEntity = new PointEntity(id, params[0], params[1], params[2]);
