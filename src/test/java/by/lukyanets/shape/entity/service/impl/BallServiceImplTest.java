@@ -20,16 +20,6 @@ public class BallServiceImplTest {
     }
 
     @Test
-    public void findBallAreaNegativeRadiusTest() {
-        Assert.assertThrows(ShapeException.class, () -> service.findBallArea(new BallEntity(1, 5, 2.0, 3.0, -5.0)));
-    }
-
-    @Test
-    public void findBallAreaZeroRadiusTest() {
-        Assert.assertThrows(ShapeException.class, () -> service.findBallArea(new BallEntity(1, 5, 2.0, 3.0, 0)));
-    }
-
-    @Test
     public void findBallAreaNormalTest() throws ShapeException {
         double actualBallArea = service.findBallArea((BallEntity) normalBallEntity);
         double expectedBallArea = 314.16;
@@ -39,16 +29,6 @@ public class BallServiceImplTest {
     @Test
     public void findBallVolumeNullTest() {
         Assert.assertThrows(ShapeException.class, () -> service.findBallVolume(null));
-    }
-
-    @Test
-    public void findBallVolumeNegativeRadiusTest() {
-        Assert.assertThrows(ShapeException.class, () -> service.findBallVolume(new BallEntity(1, 5, 2.0, 3.0, -4.0)));
-    }
-
-    @Test
-    public void findBallVolumeZeroRadiusTest() {
-        Assert.assertThrows(ShapeException.class, () -> service.findBallVolume(new BallEntity(1, 0, 2.0, 3.0, 0)));
     }
 
     @Test
@@ -86,17 +66,6 @@ public class BallServiceImplTest {
     @Test
     public void isBallTouchingCoordinateLinesNullTest() throws ShapeException {
         Assert.assertThrows(ShapeException.class, () -> service.isBallTouchingCoordinateLines(null));
-    }
-
-    @Test
-    public void isBallTouchingCoordinateLinesNegativeRadiusTest() {
-        Assert.assertThrows(ShapeException.class, () -> service.isBallTouchingCoordinateLines(new BallEntity(5, 5.0, 2.0, 3.0, -7.0)));
-    }
-
-    @Test
-    public void isBallTouchingCoordinateLinesZeroRadiusTest() {
-        Assert.assertThrows(ShapeException.class, () -> service.isBallTouchingCoordinateLines(new BallEntity(5, 5.0, 2.0, 3.0, 0)));
-
     }
 
 }

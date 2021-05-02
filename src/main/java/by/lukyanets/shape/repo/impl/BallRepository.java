@@ -2,7 +2,6 @@ package by.lukyanets.shape.repo.impl;
 
 import by.lukyanets.shape.entity.BallEntity;
 import by.lukyanets.shape.exception.ShapeException;
-import by.lukyanets.shape.validator.ShapeValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

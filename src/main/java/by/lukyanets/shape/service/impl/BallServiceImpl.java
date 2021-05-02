@@ -4,7 +4,6 @@ import by.lukyanets.shape.entity.BallEntity;
 import by.lukyanets.shape.entity.PointEntity;
 import by.lukyanets.shape.exception.ShapeException;
 import by.lukyanets.shape.service.BallService;
-import by.lukyanets.shape.validator.ShapeValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -69,7 +68,7 @@ public class BallServiceImpl implements BallService {
     }
 
     private double findHeight(double radius, double coordinatePoint) {
-       return radius - coordinatePoint;
+        return radius - coordinatePoint;
     }
 
 
