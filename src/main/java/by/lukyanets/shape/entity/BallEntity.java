@@ -1,5 +1,7 @@
 package by.lukyanets.shape.entity;
 
+import java.util.Objects;
+
 public class BallEntity extends ShapeEntity {
 
     private double x;
@@ -48,5 +50,26 @@ public class BallEntity extends ShapeEntity {
         this.radius = radius;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BallEntity that = (BallEntity) o;
+        return Double.compare(that.x, x) == 0 && Double.compare(that.y, y) == 0 && Double.compare(that.z, z) == 0 && Double.compare(that.radius, radius) == 0;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, z, radius);
+    }
+
+    @Override
+    public String toString() {
+        return "BallEntity{" +
+                "x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                ", radius=" + radius +
+                '}';
+    }
 }
