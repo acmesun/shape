@@ -9,7 +9,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class BallServiceImpl implements BallService {
-    private final static ShapeValidator validator = new ShapeValidator();
     private final static Logger logger = LogManager.getLogger(BallServiceImpl.class);
     private final static String VALIDATOR_WORKS = "BallEntity validation";
 
@@ -30,7 +29,7 @@ public class BallServiceImpl implements BallService {
     @Override
     public boolean isItBall(Object object) throws ShapeException {
         logger.info(VALIDATOR_WORKS);
-        if (validator.isNull(object)) {
+        if (object == null) {
             logger.error("Object is null");
             throw new ShapeException();
         }
@@ -50,7 +49,7 @@ public class BallServiceImpl implements BallService {
     @Override
     public double findVolumeRatio(BallEntity ballEntity, PointEntity point) throws ShapeException {
         verifyForCalculation(ballEntity);
-        if (validator.isNull(point)) {
+        if (point == null) {
             logger.error("Point can not be null");
             throw new ShapeException();
         }
@@ -69,17 +68,13 @@ public class BallServiceImpl implements BallService {
         }
     }
 
-    private double findHeight(double radius, double coordinatePoint) throws ShapeException {
-        if (validator.isNull(radius) || validator.isNull(coordinatePoint)) {
-            logger.error("Radius or coordinatePoint can not be null");
-            throw new ShapeException();
-        }
-        return radius - coordinatePoint;
+    private double findHeight(double radius, double coordinatePoint) {
+       return radius - coordinatePoint;
     }
 
 
     private double calcRatio(double radius, double height, BallEntity ballEntity) throws ShapeException {
-        if (validator.isNull(radius) || validator.isNull(height) || validator.isNull(ballEntity)) {
+        if (ballEntity == null) {
             logger.error("Parameters can not be null");
             throw new ShapeException();
         }
@@ -90,12 +85,8 @@ public class BallServiceImpl implements BallService {
 
     private void verifyForCalculation(BallEntity ballEntity) throws ShapeException {
         logger.info(VALIDATOR_WORKS);
-        if (validator.isNull(ballEntity)) {
+        if (ballEntity == null) {
             logger.error("Exception! Entity cannot be null!");
-            throw new ShapeException();
-        }
-        if (validator.isRadiusNegativeOrZero(ballEntity)) {
-            logger.error("Exception! Radius cannot be " + ballEntity.getRadius());
             throw new ShapeException();
         }
 

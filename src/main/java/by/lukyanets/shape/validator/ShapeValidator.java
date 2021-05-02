@@ -1,25 +1,12 @@
 package by.lukyanets.shape.validator;
 
-import by.lukyanets.shape.entity.BallEntity;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.List;
 
-public class ShapeValidator {
+public abstract class ShapeValidator {
 
-    private static final Logger logger = LogManager.getLogger(ShapeValidator.class);
-
-    public boolean isNull(Object ballEntity) {
-        logger.warn("BallEntity is null.");
-        return ballEntity == null;
+    public boolean isDataValid(List<Double> numbers) {
+        return validate(numbers);
     }
 
-    public boolean isRadiusNegativeOrZero(BallEntity ballEntity) {
-        logger.info("Radius cannot be negative or zero.");
-        return ballEntity.getRadius() <= 0;
-    }
-
-    public boolean canItBeRadius(double r) {
-        return r > 0;
-    }
-
+    protected abstract boolean validate(List<Double> numbers);
 }

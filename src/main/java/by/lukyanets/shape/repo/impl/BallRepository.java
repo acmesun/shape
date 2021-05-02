@@ -11,7 +11,6 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 public final class BallRepository extends ShapeRepository<BallEntity> {
-    private final ShapeValidator validator = new ShapeValidator();
     private static final BallRepository INSTANCE = new BallRepository();
     private static final Logger logger = LogManager.getLogger(BallRepository.class);
 
@@ -31,13 +30,11 @@ public final class BallRepository extends ShapeRepository<BallEntity> {
                 .collect(toList());
     }
 
-    public List<BallEntity> findAllByRadius(double radius) throws ShapeException {
+    public List<BallEntity> findAllByRadius(double radius) {
         logger.info("Checking parameter");
-        if (validator.canItBeRadius(radius)) {
-            return getData().values()
-                    .stream().filter(it -> it.getRadius() == radius)
-                    .collect(toList());
-        } else throw new ShapeException();
+        return getData().values()
+                .stream().filter(it -> it.getRadius() == radius)
+                .collect(toList());
     }
 
     public List<BallEntity> findAllByXLess(double x) {

@@ -12,24 +12,24 @@ public class BallCreatorTest {
     @Test
     public void createShapeNormalTest() throws ShapeException {
         BallEntity expectedEntity = new BallEntity(1, 1, 2, 3, 4);
-        ShapeEntity actualEntity = creator.createShape(1, 1, 2, 3, 4);
+        ShapeEntity actualEntity = creator.createShape(1, 1.0, 2.0, 3.0, 4.0);
         Assert.assertEquals(actualEntity, expectedEntity);
     }
 
     @Test
     public void createShapeMixDataTest() throws ShapeException {
         BallEntity expectedEntity = new BallEntity(1, -8, -9, -2, 9);
-        ShapeEntity actualEntity = creator.createShape(1, -8, -9, -2, 9);
+        ShapeEntity actualEntity = creator.createShape(1, -8.0, -9.0, -2.0, 9.0);
         Assert.assertEquals(actualEntity, expectedEntity);
     }
 
     @Test
     public void createShapeThreeParamsTest() {
-        Assert.assertThrows(ShapeException.class, () -> creator.createShape(1, 8, 9));
+        Assert.assertThrows(ShapeException.class, () -> creator.createShape(1, 8.0, 9.0));
     }
 
     @Test
     public void createShapeFiveParamsTest() {
-        Assert.assertThrows(ShapeException.class, () -> creator.createShape(2, 2, 9, -8, 7, 10));
+        Assert.assertThrows(ShapeException.class, () -> creator.createShape(2, 2.0, 9.0, -8.0, 7.0, 10.0));
     }
 }
