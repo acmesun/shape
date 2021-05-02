@@ -1,11 +1,12 @@
 package by.lukyanets.shape.creator;
 
-import java.util.Random;
-
 public class IdGenerator {
-    private final Random random = new Random();
+    private static Integer counter;
 
-    public Integer nextId() {
-        return random.nextInt();
+    private IdGenerator() {
+    }
+
+    public static Integer generateId() {
+        return ++counter;
     }
 }
