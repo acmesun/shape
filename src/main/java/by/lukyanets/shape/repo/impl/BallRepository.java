@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
+import static java.util.stream.Collectors.reducing;
 import static java.util.stream.Collectors.toList;
 
 public final class BallRepository extends ShapeRepository<BallEntity> {
@@ -29,8 +30,8 @@ public final class BallRepository extends ShapeRepository<BallEntity> {
                 .collect(toList());
     }
 
-    public List<BallEntity> findAllByRadius(double radius) {
-        logger.info("Checking parameter");
+    public List<BallEntity> findAllByRadius(double radius) throws ShapeException {
+        validateParams(radius);
         return getData().values()
                 .stream().filter(it -> it.getRadius() == radius)
                 .collect(toList());
@@ -51,8 +52,14 @@ public final class BallRepository extends ShapeRepository<BallEntity> {
     }
 
     private void validateParams(double minInclusive, double maxExclusive) throws ShapeException {
-        if (minInclusive <= 0 && maxExclusive <= 0 && minInclusive >= maxExclusive) {
+        if (minInclusive <= 0 || maxExclusive <= 0 || minInclusive >= maxExclusive) {
             logger.error("Invalid parameters.");
+            throw new ShapeException();
+        }
+    }
+    private void validateParams(double radius) throws ShapeException {
+        if (radius <= 0) {
+            logger.error("Radius cannot be {}", radius);
             throw new ShapeException();
         }
     }
