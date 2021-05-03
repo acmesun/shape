@@ -14,7 +14,7 @@ public class BallEntity extends ShapeEntity implements ShapeObservable {
     private double y;
     private double z;
     private double radius;
-    private ArrayList<ShapeObserver> shapeObservers = new ArrayList<>();
+    private final ArrayList<ShapeObserver> shapeObservers = new ArrayList<>();
 
     public BallEntity(int id, double x, double y, double z, double radius) {
         super(id);

@@ -1,15 +1,17 @@
 package by.lukyanets.shape.observer;
 
+import by.lukyanets.shape.entity.BallEntity;
+
 import java.util.EventObject;
 
 public class ShapeEvent extends EventObject {
 
-    public ShapeEvent(Object source) {
+    public ShapeEvent(BallEntity source) {
         super(source);
     }
 
     @Override
-    public Object getSource() {
-        return super.getSource();
+    public BallEntity getSource() {
+        return (BallEntity) super.getSource();
     }
 }
