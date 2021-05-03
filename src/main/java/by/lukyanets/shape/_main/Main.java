@@ -19,14 +19,8 @@ public class Main {
     private static final BallService service = new BallServiceImpl();
 
     public static void main(String[] args) throws ShapeException {
-        ArrayList<ShapeObserver> shapeObservers = new ArrayList<>();
-        BallEntity ballEntity1 = new BallEntity(1, -2.0, 5.0, 25.5, 3.2);
-        shapeObservers.add((ShapeObserver) ballEntity1);
-        List<BallEntity> expected = Collections.singletonList(
-                new BallEntity(1, 2.0, 5.0, 5.5, 3.2));
-
-        System.out.println(shapeObservers);
-        System.out.println(expected);
+       BallEntity ballEntity1 = new BallEntity(1, 2.0, 5.0, 5.5, 6.0);
+        System.out.println(service.findBallArea(ballEntity1));
 
     }
 }

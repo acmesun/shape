@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 public class ShapeObserverImplTest {
     private final BallEntity ballEntity1 = new BallEntity(1, 2.0, 5.0, 5.5, 3.2);
-    private final BallEntity ballEntity2 = new BallEntity(2, -2.0, -5.0, 15.5, 5.2);
     private final BallServiceImpl service = new BallServiceImpl();
     private final ShapeWarehouse warehouse = ShapeWarehouse.getInstance();
     private final ArrayList<ShapeObserver> shapeObservers = new ArrayList<>();
