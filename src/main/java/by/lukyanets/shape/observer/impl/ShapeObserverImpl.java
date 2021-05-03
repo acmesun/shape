@@ -1,7 +1,6 @@
 package by.lukyanets.shape.observer.impl;
 
 import by.lukyanets.shape.entity.BallEntity;
-import by.lukyanets.shape.entity.ShapeEntity;
 import by.lukyanets.shape.exception.ShapeException;
 import by.lukyanets.shape.observer.ShapeEvent;
 import by.lukyanets.shape.observer.ShapeObserver;

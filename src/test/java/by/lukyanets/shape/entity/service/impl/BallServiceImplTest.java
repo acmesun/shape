@@ -12,7 +12,6 @@ public class BallServiceImplTest {
 
     private final BallServiceImpl service = new BallServiceImpl();
     private final ShapeEntity normalBallEntity = new BallEntity(1, 2.0, 2.0, 3.0, 5.0);
-    private final double delta = 0.01;
 
     @Test
     public void findBallAreaNullTest() {
@@ -23,7 +22,7 @@ public class BallServiceImplTest {
     public void findBallAreaNormalTest() throws ShapeException {
         double actualBallArea = service.findBallArea((BallEntity) normalBallEntity);
         double expectedBallArea = 314.16;
-        Assert.assertEquals(actualBallArea, expectedBallArea, delta);
+        Assert.assertEquals(actualBallArea, expectedBallArea);
     }
 
     @Test
@@ -35,7 +34,7 @@ public class BallServiceImplTest {
     public void findBallVolumeNormalTest() throws ShapeException {
         double actualBallVolume = service.findBallVolume((BallEntity) normalBallEntity);
         double expectedBallVolume = 523.60;
-        Assert.assertEquals(actualBallVolume, expectedBallVolume, delta);
+        Assert.assertEquals(actualBallVolume, expectedBallVolume);
     }
 
     @Test
@@ -67,5 +66,4 @@ public class BallServiceImplTest {
     public void isBallTouchingCoordinateLinesNullTest() throws ShapeException {
         Assert.assertThrows(ShapeException.class, () -> service.isBallTouchingCoordinateLines(null));
     }
-
 }

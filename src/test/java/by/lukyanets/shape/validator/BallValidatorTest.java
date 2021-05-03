@@ -22,6 +22,7 @@ public class BallValidatorTest {
     public void validateBallLessThenNeedArgsTest() {
         Assert.assertFalse(validator.validate(Arrays.asList(2.0, 9.2)));
     }
+
     @Test
     public void validateBallWithNegativeForthArgTest() {
         Assert.assertFalse(validator.validate(Arrays.asList(2.0, 9.2, 9.6, -1.0)));

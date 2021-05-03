@@ -1,9 +1,17 @@
 package by.lukyanets.shape.util;
 
-import static java.util.Objects.requireNonNull;
+import by.lukyanets.shape.exception.ShapeException;
+
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
+import java.util.Objects;
 
 public class Util {
-    public static String findAbsolutePath(String fileName) {
-        return requireNonNull(Util.class.getClassLoader().getResource(fileName)).getPath();
+    public static String findAbsolutePath(String fileName) throws ShapeException {
+        try {
+            return Paths.get((Objects.requireNonNull(Util.class.getClassLoader().getResource(fileName))).toURI()).toString();
+        } catch (URISyntaxException e) {
+            throw new ShapeException();
+        }
     }
 }

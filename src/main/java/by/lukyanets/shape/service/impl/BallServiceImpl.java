@@ -7,6 +7,9 @@ import by.lukyanets.shape.service.BallService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class BallServiceImpl implements BallService {
     private final static Logger logger = LogManager.getLogger(BallServiceImpl.class);
     private final static String VALIDATOR_WORKS = "BallEntity validation";
@@ -15,14 +18,14 @@ public class BallServiceImpl implements BallService {
     public double findBallArea(BallEntity ballEntity) throws ShapeException {
         verifyForCalculation(ballEntity);
         double radius = ballEntity.getRadius();
-        return 4.0 * Math.PI * Math.pow(radius, 2);
+        return round(4.0 * Math.PI * Math.pow(radius, 2));
     }
 
     @Override
     public double findBallVolume(BallEntity ballEntity) throws ShapeException {
         verifyForCalculation(ballEntity);
         double radius = ballEntity.getRadius();
-        return (double) 4 / 3 * Math.PI * Math.pow(radius, 3);
+        return round((double) 4 / 3 * Math.PI * Math.pow(radius, 3));
     }
 
     @Override
@@ -94,5 +97,11 @@ public class BallServiceImpl implements BallService {
     private boolean isEquals(double number1, double number2) {
         double delta = 0.01;
         return Math.abs(number1 - number2) < delta;
+    }
+
+    private static double round(double value) {
+        BigDecimal bigDecimal = BigDecimal.valueOf(value);
+        bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
+        return bigDecimal.doubleValue();
     }
 }

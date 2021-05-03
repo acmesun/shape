@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class ShapeWarehouse {
     private static ShapeWarehouse instance;
-    private Map<Integer, ShapeParam> paramMap;
+    private final Map<Integer, ShapeParam> paramMap;
 
     private ShapeWarehouse() {
         paramMap = new HashMap<>();

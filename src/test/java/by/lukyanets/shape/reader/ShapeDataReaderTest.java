@@ -1,12 +1,11 @@
 package by.lukyanets.shape.reader;
 
 import by.lukyanets.shape.exception.ShapeException;
+import by.lukyanets.shape.util.Util;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class ShapeDataReaderTest {
@@ -14,7 +13,7 @@ public class ShapeDataReaderTest {
 
     @Test
     public void readFromFileTest() throws ShapeException {
-        List<String> actual = reader.readFromFile("C:\\Users\\User\\epam\\shape\\src\\test\\resources\\test.txt");
+        List<String> actual = reader.readFromFile(Util.findAbsolutePath("test.txt"));
         List<String> expected = new ArrayList<>();
         expected.add("2.8 2.9 2.5 4.0");
         expected.add("2.0 5.7 5.0 -9.0");
@@ -25,14 +24,14 @@ public class ShapeDataReaderTest {
 
     @Test
     public void readFromFileEmptyTest() throws ShapeException {
-        List<String> actual = reader.readFromFile("C:\\Users\\User\\epam\\shape\\src\\test\\resources\\empty.txt");
+        List<String> actual = reader.readFromFile(Util.findAbsolutePath("empty.txt"));
         List<String> expected = new ArrayList<>();
-        Assert.assertEquals(actual,expected);
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void readFromFileNoSuchFileTest() {
-        Assert.assertThrows(ShapeException.class, () -> reader.readFromFile("C:\\Users\\User\\epam\\shape\\src\\test\\resources\\noSuchFile.txt"));
+        Assert.assertThrows(NullPointerException.class, () -> reader.readFromFile(Util.findAbsolutePath("noSuchFile.txt")));
     }
 
 }
