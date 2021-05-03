@@ -74,5 +74,6 @@ public class BallSorterImplTest {
                 new BallEntity(9, 8, 1, -4, 5)
         );
         List<BallEntity> actual = service.sortByRadius(entities);
+        Assert.assertEquals(actual, expected);
     }
 }

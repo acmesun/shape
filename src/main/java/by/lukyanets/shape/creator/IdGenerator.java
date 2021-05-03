@@ -1,7 +1,7 @@
 package by.lukyanets.shape.creator;
 
 public class IdGenerator {
-    private static Integer counter;
+    private static Integer counter = 0;
 
     private IdGenerator() {
     }

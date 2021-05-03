@@ -12,4 +12,5 @@ public interface Repository<E, ID> {
     void addAll(List<E> entities);
 
     E findById(ID id);
+
 }
