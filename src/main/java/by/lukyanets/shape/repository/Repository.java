@@ -1,4 +1,4 @@
-package by.lukyanets.shape.repo;
+package by.lukyanets.shape.repository;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package by.lukyanets.shape.repository;
 
 import by.lukyanets.shape.entity.BallEntity;
 import by.lukyanets.shape.exception.ShapeException;
-import by.lukyanets.shape.repo.impl.BallRepository;
+import by.lukyanets.shape.repository.impl.BallRepository;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;

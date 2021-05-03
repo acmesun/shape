@@ -1,7 +1,7 @@
-package by.lukyanets.shape.repo.impl;
+package by.lukyanets.shape.repository.impl;
 
 import by.lukyanets.shape.entity.ShapeEntity;
-import by.lukyanets.shape.repo.Repository;
+import by.lukyanets.shape.repository.Repository;
 
 import java.util.HashMap;
 import java.util.List;

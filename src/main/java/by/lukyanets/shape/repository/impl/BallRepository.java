@@ -1,4 +1,4 @@
-package by.lukyanets.shape.repo.impl;
+package by.lukyanets.shape.repository.impl;
 
 import by.lukyanets.shape.entity.BallEntity;
 import by.lukyanets.shape.exception.ShapeException;
