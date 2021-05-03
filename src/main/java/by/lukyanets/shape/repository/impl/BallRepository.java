@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.reducing;
 import static java.util.stream.Collectors.toList;
 
 public final class BallRepository extends ShapeRepository<BallEntity> {
@@ -57,6 +56,7 @@ public final class BallRepository extends ShapeRepository<BallEntity> {
             throw new ShapeException();
         }
     }
+
     private void validateParams(double radius) throws ShapeException {
         if (radius <= 0) {
             logger.error("Radius cannot be {}", radius);

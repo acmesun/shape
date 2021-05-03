@@ -10,11 +10,11 @@ import java.util.Objects;
 
 public class BallEntity extends ShapeEntity implements ShapeObservable {
 
+    private final ArrayList<ShapeObserver> shapeObservers = new ArrayList<>();
     private double x;
     private double y;
     private double z;
     private double radius;
-    private final ArrayList<ShapeObserver> shapeObservers = new ArrayList<>();
 
     public BallEntity(int id, double x, double y, double z, double radius) {
         super(id);

@@ -23,9 +23,9 @@ public class ShapeWarehouse {
         return paramMap.get(key);
     }
 
-    public ShapeParam addParam(Integer key, Double area, Double volume){
+    public ShapeParam addParam(Integer key, Double area, Double volume) {
         ShapeParam param = new ShapeParam(area, volume);
-        return  paramMap.put(key, param);
+        return paramMap.put(key, param);
     }
 
     public ShapeParam deleteParam(Integer key) {

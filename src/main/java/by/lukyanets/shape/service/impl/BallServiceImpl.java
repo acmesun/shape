@@ -14,6 +14,12 @@ public class BallServiceImpl implements BallService {
     private final static Logger logger = LogManager.getLogger(BallServiceImpl.class);
     private final static String VALIDATOR_WORKS = "BallEntity validation";
 
+    private static double round(double value) {
+        BigDecimal bigDecimal = BigDecimal.valueOf(value);
+        bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
+        return bigDecimal.doubleValue();
+    }
+
     @Override
     public double findBallArea(BallEntity ballEntity) throws ShapeException {
         verifyForCalculation(ballEntity);
@@ -74,7 +80,6 @@ public class BallServiceImpl implements BallService {
         return radius - coordinatePoint;
     }
 
-
     private double calcRatio(double radius, double height, BallEntity ballEntity) throws ShapeException {
         if (ballEntity == null) {
             logger.error("Parameters can not be null");
@@ -97,11 +102,5 @@ public class BallServiceImpl implements BallService {
     private boolean isEquals(double number1, double number2) {
         double delta = 0.01;
         return Math.abs(number1 - number2) < delta;
-    }
-
-    private static double round(double value) {
-        BigDecimal bigDecimal = BigDecimal.valueOf(value);
-        bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
-        return bigDecimal.doubleValue();
     }
 }
